@@ -19,10 +19,9 @@ plot(l1210.growth[plot.idx1,2],l1210.growth[plot.idx1,3], ylim = c(0,8), xlim = 
 # Set up Seurat object ----------------------------------------------------
 ## READ IN RAW DATA AND META DATA
 raw.data = read.table("l1210_trap_serial_rsem.txt",sep = "\t", header = TRUE, row.names=1)
-raw.data = raw.data[,146:241]
 raw.data = log(raw.data+1)
 meta = read.table("qc_trap_serial.txt",sep = "\t", header = TRUE, row.names = 1)
-meta = meta[147:242,]
+
 
 ## SET UP SEURAT OBJECT
 l1210s = CreateSeuratObject(raw.data=raw.data,project = "l1210s",min.cells = 5,names.field=1,min.genes=4000,is.expr=0,meta.data=meta, do.scale=FALSE)
